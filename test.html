@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="">
+    <title>Викторина</title>
+</head>
+<body>
+    <h1>{{question}}</h1>
+    <h4>Выберите правильный ответ:</h4>
+    <form method="POST" action="test">
+            {% for answer in answers %}
+                <input type="radio" name="answer" value="{{answer}}">{{answer}}
+            {% endfor %}
+        <p><input type="submit" value="Ответить"></p>
+    </form>
+</body>
+</html>
