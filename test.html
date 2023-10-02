@@ -2,17 +2,53 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_test.css') }}">
     <title>Викторина</title>
 </head>
 <body>
+    <div class="parent_div">
     <h1>{{question}}</h1>
-    <h4>Выберите правильный ответ:</h4>
+    
     <form method="POST" action="test">
-            {% for answer in answers %}
-                <input type="radio" name="answer" value="{{answer}}">{{answer}}
-            {% endfor %}
-        <p><input type="submit" value="Ответить"></p>
+        <div class="answers">
+            {% if topic_name == "математика" %}
+                <style>
+                    h1{
+                        background-color: #fff;
+                    }
+                    .next_btn{
+                        background-color: #fff;
+                    }
+                    .form_radio_btn label {
+                        background-color: #fff;
+                    }
+                    body{
+                        background-image: url('folder/math.jpg');
+                    }
+                </style>
+                {% for answer in answers %}
+                    <div class="form_radio_btn">
+                        <input id="radio{{loop.index}}" type="radio" name="answer" value="{{answer}}">
+                        <label for="radio{{loop.index}}">{{answer}}</label>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <style>
+                    body{
+                        background-image: url('folder/just_background.jpg');
+                    }
+                </style>
+                {% for answer in answers %}
+                    <div class="form_radio_btn">
+                        <input id = "radio{{loop.index}}" type="radio" name="answer" value="{{answer}}">
+                        <label for="radio{{loop.index}}">{{answer}}</label>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <p><input class="next_btn" type="submit" value="Ответить"></p>
     </form>
+    </div>
+    </div>
 </body>
 </html>

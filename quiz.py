@@ -28,8 +28,9 @@ def index():
 #ВСЕ ЧТО СВЯЗАНО СО СТРАНИЦЕЙ test
 def test_page(full_question):
     quiz_content_id, question, *answers = full_question[0]
+    topic_name = get_quiz_name(session['quiz_id'])
     shuffle(answers)
-    return render_template("test.html", quiz_content_id=quiz_content_id, question=question, answers=answers)
+    return render_template("test.html", quiz_content_id=quiz_content_id, question=question, answers=answers, topic_name=topic_name.lower())
 
 def check_answer(true_answer):
     answer = request.form.get('answer')
@@ -61,12 +62,11 @@ def result():
 
 # Создаём объект веб-приложения:
 folder = os.getcwd()
-app = Flask(__name__, static_folder=folder, template_folder=folder)
+app = Flask(__name__, static_folder="folder", template_folder=folder)
 app.config['JSON_AS_ASCII'] = False   # параметр - имя модуля для веб-приложения
                         # значение __name__ содержит корректное имя модуля для текущего файла 
                         # в нём будет значение "__main__", если модуль запускается непосредственно
                         # и другое имя, если модуль подключается
-
 app.add_url_rule('/', 'index', index, methods = ['POST', 'GET'])
 app.add_url_rule('/test', 'test', test, methods = ['POST', 'GET'])
 app.add_url_rule('/result', 'result', result)   # создаёт правило для URL: 
@@ -84,4 +84,4 @@ app.config["SECRET_KEY"] = 'DontTellAboutThisKey'
 if __name__ == "__main__":
     make_databases()
     # Запускаем веб-сервер:
-    app.run() 
+    app.run()

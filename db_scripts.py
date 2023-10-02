@@ -27,7 +27,7 @@ def clear_db():
     do(query)
     close()
 
-    
+# make db of all questions
 def create_question(list_questions):
     open()
     question = """CREATE TABLE IF NOT EXISTS question (
@@ -45,6 +45,7 @@ def create_question(list_questions):
     VALUES (?, ?, ?, ?, ?)""", list_questions)
     do(question)
 
+#make db of all quizes
 def create_quiz(quizes):
     quiz = """CREATE TABLE IF NOT EXISTS quiz(
         id INTEGER PRIMARY KEY,
@@ -89,34 +90,34 @@ def create_content_quiz(quizes, list_questions):
     #     question = int(input("id вопроса: "))
     #     cursor.execute(query, [quiz_id, question])
     #     conn.commit()
-        
+
+#function that return next_question of choosen topic   
 def get_question_after(question_id=0, quiz_id=1):
     open()
     cursor.execute("SELECT quiz_content.id, question.question, question.answer, question.wrong_1, question.wrong_2, question.wrong_3 FROM quiz_content, question WHERE quiz_content.question_id == question.id AND quiz_content.quiz_id == (?) AND quiz_content.id > (?) ORDER BY quiz_content.id", [quiz_id, question_id])
     return cursor.fetchall()
 
-# def verify_answer(answer):
-#     open()
-#     cursor.execute('SELECT question.answer FROM question WHERE question.answer == (?)', answer)
-#     return cursor.fetchall()
-
-
 def show(table):
     query = 'SELECT * FROM ' + table
     open()
     cursor.execute(query)
-    print(cursor.fetchall())
     close()
 
+#function that gives list of quizes to user
 def get_quizes():
     open()
     cursor.execute('SELECT * FROM quiz ORDER BY id')
     quiz_list = cursor.fetchall()
-    print(quiz_list)
-    print()
     close()
     return quiz_list
 
+#function that determines which quiz was chosen(needed to deermine the background-image of the test)
+def get_quiz_name(id):
+    open()
+    cursor.execute('SELECT quiz.name FROM quiz WHERE quiz.id == (?)', id)
+    name = cursor.fetchall()
+    close()
+    return name[0][0]
 
 def show_tables():
     show('question')
