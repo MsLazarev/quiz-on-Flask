@@ -1,4 +1,6 @@
 import sqlite3
+from questions_quizes import *
+
 db_name = 'quiz.sqlite'
 conn = None
 cursor = None
@@ -30,6 +32,7 @@ def clear_db():
 # make db of all questions
 def create_question(list_questions):
     open()
+    print(list_questions)
     question = """CREATE TABLE IF NOT EXISTS question (
         id INTEGER PRIMARY KEY,
         question VARCHAR,
@@ -39,14 +42,15 @@ def create_question(list_questions):
         wrong_3 VARCHAR);"""
     do(question)
 
-    
     cursor.executemany("""INSERT INTO question
     (question, answer, wrong_1, wrong_2, wrong_3)
     VALUES (?, ?, ?, ?, ?)""", list_questions)
     do(question)
+    close()
 
 #make db of all quizes
 def create_quiz(quizes):
+    open()
     quiz = """CREATE TABLE IF NOT EXISTS quiz(
         id INTEGER PRIMARY KEY,
         name VARCHAR);"""
@@ -57,8 +61,12 @@ def create_quiz(quizes):
     (name)
     VALUES (?)""", quizes)
     do(quiz)
+    close()
+
+
 
 def create_content_quiz(quizes, list_questions):
+    open()
     quiz_content = """CREATE TABLE IF NOT EXISTS quiz_content(
     id INTEGER PRIMARY KEY,
     quiz_id INTEGER,
@@ -71,31 +79,40 @@ def create_content_quiz(quizes, list_questions):
     query = """INSERT INTO quiz_content (quiz_id, question_id)
     VALUES (?, ?)"""
     id_memory = 0
-    open()
     #МОЙ СПОСОБ СОЗДАНИЯ ДБ НЕ ИСПОЛЬЗУЯ КОНСОЛЬ
     for i in range(1, len(quizes) + 1):
         quiz_id = i
-        for j in range(1, len(list_questions) + 1):
-            if (len(list_questions) // len(quizes)) + 1 == j:
+        for j in range(len(list_questions_QuizContent)):
+            if len(list_questions_QuizContent[j]) == 2:
+                a = list_questions_QuizContent.pop(j)
+                del list_questions_QuizContent[0:j]
+                print(list_questions_QuizContent)
+                print()
                 break
             id_memory += 1
             question_id = id_memory
+            print(id_memory)
             cursor.execute(query, [quiz_id, question_id])            
             conn.commit()
     close()
 
-    #CПОСОБ АЛГОРИТМИКИ С ПОМОЩЬЮ КОНСОЛИ   
+    #CПОСОБ СОЗДАНИЯ ДБ С ПОМОЩЬЮ КОНСОЛИ
     # while input("Добавлять связь? y/n: ") != "n":
     #     quiz_id = int(input("id викторины: "))
     #     question = int(input("id вопроса: "))
     #     cursor.execute(query, [quiz_id, question])
     #     conn.commit()
 
+
+
+
 #function that return next_question of choosen topic   
 def get_question_after(question_id=0, quiz_id=1):
     open()
     cursor.execute("SELECT quiz_content.id, question.question, question.answer, question.wrong_1, question.wrong_2, question.wrong_3 FROM quiz_content, question WHERE quiz_content.question_id == question.id AND quiz_content.quiz_id == (?) AND quiz_content.id > (?) ORDER BY quiz_content.id", [quiz_id, question_id])
-    return cursor.fetchall()
+    result = cursor.fetchall()
+    close()
+    return result
 
 def show(table):
     query = 'SELECT * FROM ' + table
@@ -125,27 +142,16 @@ def show_tables():
     show('quiz_content')
     
 def main():
-    quizes = [
-        ('Математика', ),
-        ('Кто хочет стать миллионером?', ),
-        ('Самый умный', )]
-    list_questions = [
-        ('Сколько будет 2 + 2?', 'Четыре', 'Один', 'Три', 'Пять'),
-        ('Имя ученого который придумал нахождение гипотенузы по катетам?', 'Пифагор', 'Аристотель', 'Сократ', 'Паскаль'),
-        ('Формула площади ромба', 'половине произведения диагоналей', 'произведению 2ух сторон', 'половине произведения высоты на сторону', 'произведению диагоналей'),
-
-        ('Самое большое млекопитающее?', 'Синий кит', 'Слон', 'Акула', 'Гиппопотам'),
-        ('Какой рукой лучше размешивать чай?', 'Ложкой', 'Правой', 'Левой', 'Любой'),
-        ('Что не имеет длины, глубины, ширины, высоты, а можно измерить?', 'Время', 'Глупость', 'Море', 'Воздух'),
-
-        ('Когда сетью можно вытянуть воду?', 'Когда вода замерзла', 'Когда нет рыбы', 'Когда уплыла золотая рыбка', 'Когда сеть порвалась'),
-        ('Что не поместится даже в самую большую кастрюлю во вселенной?', 'Ее крышка', 'Планета', 'Кастрюля супа', '100000 грузовиков'),
-        ('Что больше слона и ничего не весит?', 'Тень слона', 'Воздушный шар', 'Парашют', 'Облако')]
+    list_questions = all_questions
+    list_questions_Quiz_Content = list_questions_QuizContent
+    quizes = all_quizes
     clear_db()
     create_question(list_questions)
     create_quiz(quizes)
-    create_content_quiz(quizes, list_questions)
-
+    create_content_quiz(quizes, list_questions_QuizContent)
+    open()
+    cursor.execute("SELECT * FROM question")
+    print(cursor.fetchall())
 
 if __name__ == "__main__":
     main()

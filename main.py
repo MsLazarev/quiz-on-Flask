@@ -1,5 +1,4 @@
-for i in range(1, 3):
-    for j in range(1, 10):
-        if j == 3:
-            break
-        print(j)
+if input() == 4" or '2':
+    print(1)
+else:
+    print(2)
