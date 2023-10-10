@@ -1,0 +1,41 @@
+
+
+h1{
+    background-color: #5680cc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 150px;
+}
+
+.answers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_radio_btn {
+    display: inline-block;
+    margin-right: 100px;
+}
+
+.form_radio_btn label {
+    display: inline-block;
+    padding: 0px 15px;
+    background-color: #5680cc;
+    line-height: 34px;
+    border: 1px solid #999;
+    border-radius: 12px;
+}
+
+
+
+.next_btn {
+    background-color: #5680cc;
+    font-size: large;
+    width: 150px;
+    height: 50px;
+    margin: 10px 10% 70% 43%;
+    cursor: pointer;
+}

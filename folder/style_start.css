@@ -1,0 +1,58 @@
+body{
+    background-image: url('icons.jpg');
+    background-repeat: repeat-x;
+    animation: slide 30s linear infinite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.choose {
+    padding: 9px;
+    width: 600px;
+    background-color: darkgreen;
+    border-radius: 15px;
+    justify-content: left;
+    align-items: left;
+}
+
+.button {
+    background-color: brown;
+}
+
+.description {
+    background-image: url('white_back.jpg');
+    background-size: cover;
+    background-repeat: repeat-x;
+    display: flex;
+    height: 260px;
+    width: 700px;
+    position: absolute;
+    bottom: 100px;
+}
+
+.Text {
+    color: black;
+    margin: 2px;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.muzhik {
+    height: 250px;
+    width: 300px;
+}
+@keyframes slide {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    50% {
+        background-position: 100% 0%;
+    }
+
+    100% {
+        background-position: -100% 0%;
+    }
+}

@@ -1,0 +1,124 @@
+body {
+    background-color: black;
+    background-image: url('board.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.results {
+    position: absolute;
+    color: white;
+    left: 15%;
+    bottom: 75%;
+    font-style: oblique;
+    font-variant: small-caps;
+    font-size: xx-large;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 1350px) {
+    .results {
+        bottom: 73%;
+    }
+}
+
+@media (max-width: 1550px) and (max-height: 1800px) {
+    body {
+        background-color: black;
+        background-image: url('board_for_phones.jpg');
+        background-size: 100% 19000%;
+        background-repeat: no-repeat;
+    }
+
+    .results {
+        font-size: xxx-large;
+        left: 15%;
+        bottom: 70%;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 950px) and (max-height: 1200px) {
+    body {
+        background-color: black;
+        background-image: url('board_for_phones.jpg');
+        background-size: 100% 14700%;
+        background-repeat: no-repeat;
+    }
+
+    .results {
+        font-size: xx-large;
+        left: 15%;
+        bottom: 70%;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 950px) and (max-height: 1050px) {
+    body {
+        background-color: black;
+        background-image: url('board_for_phones.jpg');
+        background-size: 100% 12900%;
+        background-repeat: no-repeat;
+    }
+
+    .results {
+        font-size: xx-large;
+        left: 15%;
+        bottom: 70%;
+        letter-spacing: 1px;
+    }
+}
+    
+
+
+@media (max-width: 1000px) and (max-height: 900px) {
+    body {
+        background-color: black;
+        background-image: url('board_for_phones.jpg');
+        background-size: 100% 10500%;
+        background-repeat: no-repeat;
+    }
+
+    .results {
+        font-size: xx-large;
+        left: 20%;
+        bottom: 70%;
+        letter-spacing: 1px;
+    }
+}
+    
+
+@media (max-width: 700px) and (max-height: 1000px) {
+    body {
+        background-color: black;
+        background-image: url('board_for_phones.jpg');
+        background-size: 100% 10000%;
+        background-repeat: no-repeat;
+    }
+
+    .results {
+        font-size: large;
+        left: 13%;
+        bottom: 80%;
+        letter-spacing: 0px;
+    }
+}
+
+@media (max-width: 700px) and (max-height: 741px) {
+    body {
+        background-color: black;
+        background-image: url('board_for_phones.jpg');
+        background-size: 100% 8300%;
+        background-repeat: no-repeat;
+    }
+
+    .results {
+        font-size: large;
+        left: 9%;
+        bottom: 70%;
+        letter-spacing: 0px;
+    }
+}
+    
+
