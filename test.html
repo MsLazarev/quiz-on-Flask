@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ url_for('static', filename='style_test.css') }}">
     <title>Викторина</title>
 </head>
@@ -10,45 +11,60 @@
     <h1>{{question}}</h1>
     
     <form method="POST" action="test">
-        <div class="answers">
-            {% if topic_name == "математика" %}
-                <style>
-                    h1{
-                        background-color: #fff;
-                    }
-                    .next_btn{
-                        background-color: #fff;
-                    }
-                    .form_radio_btn label {
-                        background-color: #fff;
-                    }
-                    body{
-                        background-image: url('folder/math.jpg');
-                    }
-                </style>
-                {% for answer in answers %}
-                    <div class="form_radio_btn">
-                        <input id="radio{{loop.index}}" type="radio" name="answer" value="{{answer}}">
-                        <label for="radio{{loop.index}}">{{answer}}</label>
-                    </div>
-                {% endfor %}
-            {% else %}
-                <style>
-                    body{
-                        background-image: url('folder/just_background.jpg');
-                    }
-                </style>
-                {% for answer in answers %}
-                    <div class="form_radio_btn">
-                        <input id = "radio{{loop.index}}" type="radio" name="answer" value="{{answer}}">
-                        <label for="radio{{loop.index}}">{{answer}}</label>
-                    </div>
-                {% endfor %}
-            {% endif %}
+        <div class="answers_And_button">
+            <div class="answers">
+                {% if topic_name == "математика" %}
+                    <style>
+                        h1{
+                            background-color: #fff;
+                        }
+                        .next_btn{
+                            background-color: #fff;
+                        }
+                        .form_radio_btn label {
+                            background-color: #fff;
+                        }
+                        body{
+                            background-image: url('folder/math.jpg');
+                        }
+                    </style>
+                    {% for answer in answers %}
+                        <div class="form_radio_btn">
+                            <input id="radio{{loop.index}}" type="radio" name="answer" value="{{answer}}">
+                            <label for="radio{{loop.index}}">{{answer}}</label>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <style>
+                        body{
+                            background-image: url('folder/just_background.jpg');
+                        }
+                    </style>
+                    {% for answer in answers %}
+                        <div class="form_radio_btn">
+                            <input id = "radio{{loop.index}}" type="radio" name="answer" value="{{answer}}">
+                            <label for="radio{{loop.index}}">{{answer}}</label>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="button">
+                меня зовут не гр, а миша
+                <input class="next_btn" type="submit" value="Ответить" disabled>
+            </div>
         </div>
-        <p><input class="next_btn" type="submit" value="Ответить"></p>
+        <script>
+            const options = document.querySelectorAll('.form_radio_btn');
+            const submitButton = document.querySelector('input[type="submit"]');
+
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    submitButton.removeAttribute('disabled');
+                });
+            });
+        </script>
     </form>
     </div>
-    </div>
+        
 </body>
 </html>

@@ -21,6 +21,7 @@ def index():
         return quiz_form()
     if request.method == 'POST':
         session['quiz_id'] = request.form.get("quiz")
+        session['last_question'] = 0
         session['total'] = 0
         session['correct'] = 0
         return redirect(url_for('test'))
@@ -38,18 +39,18 @@ def check_answer(true_answer):
     if answer == true_answer:
         session['correct'] += 1
 
-cnt = 0 #задаёт id вопроса
+
 correct_answer = ""#запоминает правильный ответ в каждом новом вопросе
 def test():
-    global cnt, correct_answer
+    global correct_answer
     if "quiz_id" not in session or session["quiz_id"] == -1:
         return redirect(url_for('index'))
     if request.method == "POST":
         check_answer(correct_answer)
     try:
-        next_question = get_question_after(cnt, session['quiz_id'])
+        next_question = get_question_after(session['last_question'], session['quiz_id'])
         correct_answer = next_question[0][2]
-        cnt = next_question[0][0]
+        session['last_question'] = next_question[0][0]
         return test_page(next_question)
     except:
         return redirect(url_for('result'))
@@ -85,3 +86,4 @@ if __name__ == "__main__":
     make_databases()
     # Запускаем веб-сервер:
     app.run()
+

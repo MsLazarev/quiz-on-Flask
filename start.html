@@ -10,7 +10,7 @@
         <h3 class="hthree">Выберите викторину:</h3>
     
     <form method="POST" action="/">
-        <select class="button" name="quiz">
+        <select class="button" name="quiz" size="1">
             {% for id, name in q_list %}
                 <option class="button" value="{{id}}">{{name}}</option>
             {% endfor %}
