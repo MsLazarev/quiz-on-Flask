@@ -1,0 +1,187 @@
+h1{
+    background-color: #5680cc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 150px;
+}
+
+.answers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_radio_btn {
+    display: inline-block;
+    margin-right: 100px;
+}
+
+.form_radio_btn label {
+    display: inline-block;
+    padding: 0px 15px;
+    background-color: #5680cc;
+    line-height: 34px;
+    border: 1px solid #999;
+    border-radius: 12px;
+}
+
+
+
+.next_btn {
+    background-color: #5680cc;
+    font-size: large;
+    cursor: pointer;
+}
+
+
+@media (max-width: 1800px) {
+    .next_btn {
+    position: absolute;
+    background-color: #5680cc;
+    font-size: xx-large;
+    width: 15%;
+    height: 7%;
+    left: 0%;
+    top: 20%;
+    cursor: pointer;
+    }
+    
+    .form_radio_btn {
+        display: inline-block;
+        margin-right: 100px;
+    }
+    
+    .form_radio_btn label {
+        display: inline-block;
+        padding: 0px 15px;
+        background-color: #5680cc;
+        font-size: x-large;
+        line-height: 34px;
+        border: 1px solid #999;
+        border-radius: 12px;
+    }
+}
+
+
+
+@media (max-width: 1200px) {
+    .next_btn {
+    position: absolute;
+    background-color: #5680cc;
+    font-size: x-large;
+    width: 15%;
+    height: 7%;
+    left: 0%;
+    top: 20%;
+    cursor: pointer;
+    }
+    
+    .form_radio_btn {
+        display: inline-block;
+        margin-right: 100px;
+    }
+    
+    .form_radio_btn label {
+        display: inline-block;
+        padding: 0px 15px;
+        background-color: #5680cc;
+        font-size: x-large;
+        line-height: 34px;
+        border: 1px solid #999;
+        border-radius: 12px;
+    }
+}
+
+/*
+@media (max-width: 1000px) and (min-height: 1000px) {
+    .next_btn { 
+    position: absolute;
+    background-color: #5680cc;
+    font-size: xx-large;
+    width: 200px;
+    height: 70px;
+    left: -25px;
+    top: 172px;
+    cursor: pointer;
+    }
+    
+    .form_radio_btn {
+        margin-right: 70px;
+        margin-left: 50px;
+        display: inline-block;
+    }
+    
+    .form_radio_btn label {
+        display: inline-block;
+        padding: 1px 35px;
+        background-color: #5680cc;
+        font-size: x-large;
+        line-height: 34px;
+        border: 1px solid #999;
+        border-radius: 12px;
+    }
+}
+*/
+
+@media (max-width: 550px) and (max-height: 850px) {
+    h1{
+        padding: 20px 50px;
+        width: 75%;
+        margin: 10px;
+        text-align: center;
+        border-radius: 120px;
+    }
+
+    .answers_And_button {
+        display: grid;
+    }
+
+    .button {
+        color: white;
+        height: 150px;
+    }
+    
+    .next_btn { 
+        font-size: x-large;
+        border: content-box;
+        width: 100%;
+        
+    }
+
+    .answers{
+        display: inline-block;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+    
+    .form_radio_btn {
+        margin-top: 30px;
+    }
+    
+    .form_radio_btn label {
+        padding: 0px 15px;
+        font-size: x-large;
+        line-height: 34px;
+        border-radius: 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
