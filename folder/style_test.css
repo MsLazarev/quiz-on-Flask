@@ -125,6 +125,12 @@ h1{
 }
 */
 
+
+
+
+
+
+
 @media (max-width: 550px) and (max-height: 850px) {
     h1{
         padding: 20px 50px;
@@ -141,26 +147,30 @@ h1{
     .button {
         color: white;
         height: 150px;
+        width: 550px;
+        align-items: center;
     }
     
     .next_btn { 
         font-size: x-large;
         border: content-box;
-        width: 100%;
+        position: relative;
+        height: 45px;
+        width: 150px;
+        margin-left: 20%;
         
     }
 
     .answers{
-        display: inline-block;
-        align-items: center;
-        justify-content: center;
-        margin-top: 10px;
+        display: grid;
+        margin-right: 150px;
         margin-bottom: 10px;
         margin-left: 10px;
     }
     
     .form_radio_btn {
         margin-top: 30px;
+        width: 300px;
     }
     
     .form_radio_btn label {
@@ -170,7 +180,6 @@ h1{
         border-radius: 12px;
     }
 }
-
 
 
 
