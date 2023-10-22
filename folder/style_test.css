@@ -11,11 +11,13 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
 .form_radio_btn {
     display: inline-block;
     margin-right: 100px;
+    margin-left: 30px;
 }
 
 .form_radio_btn label {
@@ -27,11 +29,17 @@ h1{
     border-radius: 12px;
 }
 
-
+.button{
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .next_btn {
     background-color: #5680cc;
     font-size: large;
+    width: 120px;
+    height: 35px;
     cursor: pointer;
 }
 
@@ -131,13 +139,14 @@ h1{
 
 
 
-@media (max-width: 550px) and (max-height: 850px) {
+@media (max-width: 650px) {
     h1{
-        padding: 20px 50px;
-        width: 75%;
-        margin: 10px;
+        margin-left: auto;
+        margin-right: auto;
         text-align: center;
-        border-radius: 120px;
+        height: 100%;
+        width: 100%;
+        border-radius: 60px;
     }
 
     .answers_And_button {
@@ -146,18 +155,17 @@ h1{
 
     .button {
         color: white;
-        height: 150px;
-        width: 550px;
-        align-items: center;
+        height: 100%;
+        width: 100%;
+        margin-top: 20px;
     }
     
     .next_btn { 
         font-size: x-large;
-        border: content-box;
         position: relative;
         height: 45px;
         width: 150px;
-        margin-left: 20%;
+        margin-left: 15%;
         
     }
 
@@ -170,14 +178,12 @@ h1{
     
     .form_radio_btn {
         margin-top: 30px;
+        margin-left: 0px;
         width: 300px;
     }
     
     .form_radio_btn label {
-        padding: 0px 15px;
         font-size: x-large;
-        line-height: 34px;
-        border-radius: 12px;
     }
 }
 
