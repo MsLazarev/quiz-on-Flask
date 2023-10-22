@@ -1,3 +1,11 @@
+.result_label {
+    margin-bottom: -100px;
+}
+.result_answer {
+    margin-top: 100px;
+}
+
+
 body {
     background-color: black;
     background-image: url('board.jpg');
@@ -9,7 +17,7 @@ body {
     position: absolute;
     color: white;
     left: 15%;
-    bottom: 75%;
+    bottom: 60%;
     font-style: oblique;
     font-variant: small-caps;
     font-size: xx-large;
@@ -33,7 +41,7 @@ body {
     .results {
         font-size: xxx-large;
         left: 15%;
-        bottom: 70%;
+        bottom: 50%;
         letter-spacing: 1px;
     }
 }
@@ -100,7 +108,7 @@ body {
     .results {
         font-size: large;
         left: 13%;
-        bottom: 80%;
+        bottom: 70%;
         letter-spacing: 0px;
     }
 }
@@ -121,4 +129,6 @@ body {
     }
 }
     
+
+
 
