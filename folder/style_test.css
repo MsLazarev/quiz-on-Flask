@@ -14,6 +14,22 @@ h1{
     margin-bottom: 50px;
 }
 
+.form_radio_btn input{
+    display: none;
+}
+
+
+.form_radio_btn label:hover{
+    background-color: grey;
+    color: white;
+}
+
+.form_radio_btn input[type='radio']:checked + label{
+    background-color: grey;
+    color: white;
+}
+
+
 .form_radio_btn {
     display: inline-block;
     margin-right: 100px;
@@ -102,40 +118,61 @@ h1{
     }
 }
 
-/*
-@media (max-width: 1000px) and (min-height: 1000px) {
+@media (max-width: 1200px) {
+    h1{
+        margin-left: 10px;
+        text-align: center;
+        height: 50%;
+        width: 90%;
+        border-radius: 60px;
+    }
+
+    .answers_And_button {
+        display: grid;
+    }
+
+    .button {
+        color: white;
+        height: 100%;
+        width: 100%;
+        margin-top: 20px;
+    }
+    
     .next_btn { 
-    position: absolute;
-    background-color: #5680cc;
-    font-size: xx-large;
-    width: 200px;
-    height: 70px;
-    left: -25px;
-    top: 172px;
-    cursor: pointer;
+        font-size: xx-large;
+        position: relative;
+        height: 65px;
+        width: 190px;
+        margin-left: 35%;
+        
+    }
+
+    .answers{
+        display: grid;
+        margin-left: 70px;
+        width: 150px;
     }
     
     .form_radio_btn {
-        margin-right: 70px;
-        margin-left: 50px;
-        display: inline-block;
+        margin-top: 70px;
+        margin-left: -20px;
+        width: 10px;
     }
     
     .form_radio_btn label {
         display: inline-block;
-        padding: 1px 35px;
-        background-color: #5680cc;
-        font-size: x-large;
-        line-height: 34px;
-        border: 1px solid #999;
-        border-radius: 12px;
+        text-align: center;
+        padding: 0px 20px;
+        /*display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 370px;
+        height: 110px;
+        font-size: xx-large;*/
+        
     }
+
 }
-*/
-
-
-
-
 
 
 
@@ -154,49 +191,38 @@ h1{
     }
 
     .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: white;
         height: 100%;
         width: 100%;
         margin-top: 20px;
     }
     
-    .next_btn { 
+    .next_btn {
         font-size: x-large;
         position: relative;
         height: 45px;
         width: 150px;
-        margin-left: 15%;
-        
+        margin-left: 0px;
     }
 
     .answers{
         display: grid;
         margin-right: 150px;
         margin-bottom: 10px;
-        margin-left: 10px;
+        margin-left: 15px;
     }
     
     .form_radio_btn {
         margin-top: 30px;
         margin-left: 0px;
-        width: 300px;
+        width: 30px;
     }
     
     .form_radio_btn label {
         font-size: x-large;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
