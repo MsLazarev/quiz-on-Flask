@@ -2,17 +2,18 @@
 <html>
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='style_start.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Викторина</title>
     <meta http-equiv="expires" content="0">
 </head>
 <body>
     <div class="choose">
-        <h3 class="hthree">Выберите викторину:</h3>
+        <h3 class="choose_pls">Выберите викторину:</h3>
     
     <form method="POST" action="/">
-        <select class="button" name="quiz" size="1">
+        <select class="select_list" name="quiz" size="1">
             {% for id, name in q_list %}
-                <option class="button" value="{{id}}">{{name}}</option>
+                <option id="{{id}}" class="select_elements" value="{{id}}">{{name}}</option>
             {% endfor %}
         </select>
         <input class="button" type="submit" value="Выбрать!">
@@ -22,11 +23,11 @@
         <div class="Text">
             <h3>Достигайте вершин!</h3>
             <p>Около пятидесяти вопросов и около 15 тем в викторине!</p>
-            <p>Вопросы которые не каждый сможет решить. Есть и сложные, и лёгкие!</p>
+            <p>Вопросы которые решит не каждый.</p>
             <p>Проводите время с умом в нашей викторине!</p>
         </div>
         <div class="whiteBack">
-            <img class='muzhik' src="folder\muzhik.png">
+            <img class='muzhik' src="folder\assets\muzhik.png">
         </div>
     </div>
 </body>

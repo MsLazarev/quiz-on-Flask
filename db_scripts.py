@@ -32,7 +32,6 @@ def clear_db():
 # make db of all questions
 def create_question(list_questions):
     open()
-    print(list_questions)
     question = """CREATE TABLE IF NOT EXISTS question (
         id INTEGER PRIMARY KEY,
         question VARCHAR,
@@ -64,7 +63,6 @@ def create_quiz(quizes):
     close()
 
 
-
 def create_content_quiz(quizes, list_questions):
     open()
     quiz_content = """CREATE TABLE IF NOT EXISTS quiz_content(
@@ -86,12 +84,9 @@ def create_content_quiz(quizes, list_questions):
             if len(list_questions_QuizContent[j]) == 2:
                 a = list_questions_QuizContent.pop(j)
                 del list_questions_QuizContent[0:j]
-                print(list_questions_QuizContent)
-                print()
                 break
             id_memory += 1
             question_id = id_memory
-            print(id_memory)
             cursor.execute(query, [quiz_id, question_id])            
             conn.commit()
     close()
@@ -151,7 +146,6 @@ def main():
     create_content_quiz(quizes, list_questions_QuizContent)
     open()
     cursor.execute("SELECT * FROM question")
-    print(cursor.fetchall())
 
 if __name__ == "__main__":
     main()

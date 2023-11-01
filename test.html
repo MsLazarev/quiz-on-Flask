@@ -13,6 +13,7 @@
     <form method="POST" action="test">
         <div class="answers_And_button">
             <div class="answers">
+                <!--if topic==math-->
                 {% if topic_name == "математика" %}
                     <style>
                         h1{
@@ -27,6 +28,15 @@
                         body{
                             background-image: url('folder/math.jpg');
                         }
+                        .form_radio_btn label:hover{
+                            background-color: grey;
+                            color: white;
+                        }
+
+                        .form_radio_btn input[type='radio']:checked + label{
+                            background-color: grey;
+                            color: white;
+                        }
                     </style>
                     {% for answer in answers %}
                         <div class="form_radio_btn">
@@ -34,6 +44,8 @@
                             <label for="radio{{loop.index}}">{{answer}}</label>
                         </div>
                     {% endfor %}
+
+                <!--if topic ==e.t.c-->
                 {% else %}
                     <style>
                         body{
@@ -47,10 +59,11 @@
                         </div>
                     {% endfor %}
                 {% endif %}
+
                 
-                <div class="button">
-                    <input class="next_btn" type="submit" value="Ответить" disabled>
-                </div>
+            </div>
+            <div class="button">
+                <input class="next_btn" name="button" type="submit" value="Ответить" disabled>
             </div>
         </div>
         <script>
