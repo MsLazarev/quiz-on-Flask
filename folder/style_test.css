@@ -11,6 +11,7 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 50px;
     margin-bottom: 50px;
 }
 
@@ -25,8 +26,8 @@ h1{
 }
 
 .form_radio_btn input[type='radio']:checked + label{
-    background-color: grey;
-    color: white;
+    color: #5680cc;
+    background-color: black
 }
 
 
@@ -38,9 +39,10 @@ h1{
 
 .form_radio_btn label {
     display: inline-block;
-    padding: 0px 15px;
+    padding: 0px 45px;
     background-color: #5680cc;
-    line-height: 34px;
+    line-height: 60px;
+    font-size: x-large;
     border: 1px solid #999;
     border-radius: 12px;
 }
@@ -53,70 +55,13 @@ h1{
 
 .next_btn {
     background-color: #5680cc;
-    font-size: large;
-    width: 120px;
-    height: 35px;
-    cursor: pointer;
-}
-
-
-@media (max-width: 1800px) {
-    .next_btn {
-    position: absolute;
-    background-color: #5680cc;
-    font-size: xx-large;
-    width: 15%;
-    height: 7%;
-    left: 0%;
-    top: 20%;
-    cursor: pointer;
-    }
-    
-    .form_radio_btn {
-        display: inline-block;
-        margin-right: 100px;
-    }
-    
-    .form_radio_btn label {
-        display: inline-block;
-        padding: 0px 15px;
-        background-color: #5680cc;
-        font-size: x-large;
-        line-height: 34px;
-        border: 1px solid #999;
-        border-radius: 12px;
-    }
-}
-
-
-
-@media (max-width: 1200px) {
-    .next_btn {
-    position: absolute;
-    background-color: #5680cc;
     font-size: x-large;
-    width: 15%;
-    height: 7%;
-    left: 0%;
-    top: 20%;
+    width: 150px;
+    height: 50px;
     cursor: pointer;
-    }
-    
-    .form_radio_btn {
-        display: inline-block;
-        margin-right: 100px;
-    }
-    
-    .form_radio_btn label {
-        display: inline-block;
-        padding: 0px 15px;
-        background-color: #5680cc;
-        font-size: x-large;
-        line-height: 34px;
-        border: 1px solid #999;
-        border-radius: 12px;
-    }
 }
+
+
 
 @media (max-width: 1200px) {
     h1{
@@ -210,6 +155,7 @@ h1{
 
     .answers{
         display: grid;
+        margin-top: 0px;
         margin-right: 150px;
         margin-bottom: 10px;
         margin-left: 15px;
@@ -223,6 +169,7 @@ h1{
     
     .form_radio_btn label {
         font-size: x-large;
+        line-height: 40px;
     }
 }
 
